@@ -28,7 +28,7 @@ public class JsonParser {
             throw new Exception("The object to serialize is null");
         }
         Class<?> clazz = object.getClass();
-        for (Method method : object.getClass().getDeclaredMethods()) {
+        for (Method method : clazz.getDeclaredMethods()) {
             if (method.isAnnotationPresent(BeforeSerializable.class)) {
                 method.setAccessible(true);
                 method.invoke(object);
