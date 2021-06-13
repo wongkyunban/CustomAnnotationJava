@@ -45,7 +45,7 @@ public class JsonParser {
         Map<String, Object> map = new HashMap<>();
         for (Field field : clazz.getDeclaredFields()) {
             field.setAccessible(true);
-            if (field.isAnnotationPresent(JsonField.class)) {
+            if (field.isAnnotationPresent(JsonField.class) && field.get(object) != null) {
                 String key = getKey(field);
                 if(!TextUtils.isEmpty(key)) {
                     map.put(key, field.get(object));
