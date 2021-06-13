@@ -25,7 +25,7 @@ public class Student {
     }
 
     @BeforeSerializable
-    public void initFullName(){
+    private void initFullName(){
         name = lastName +" "+firstName+"@";
     }
 
